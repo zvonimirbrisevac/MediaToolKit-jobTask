@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  ip-resolver-database:
+    image: "postgres:14.2-alpine"
+    ports:
+      - "5434:5432"
+    volumes:
+      - "ip-resolver-db-data:/var/lib/postgresql/data"
+    environment:
+      - "POSTGRES_USER=admin"
+      - "POSTGRES_PASSWORD=admin"
+      - "POSTGRES_DB=ip-resolver-db"
+volumes:
+  ip-resolver-db-data:
